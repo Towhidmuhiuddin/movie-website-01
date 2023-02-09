@@ -44,3 +44,9 @@ class Movie(models.Model):
     def __str__(self):
         return self.name
     
+class Ticket(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    ticket_qty = models.IntegerField(null=False,blank=False)
+    created_at = models.DateField(auto_now_add=True)
+    

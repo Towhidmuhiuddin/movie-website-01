@@ -1,6 +1,6 @@
 from django.urls import path
 from store import views
-from store.controller import authview
+from store.controller import authview,ticket
 
 urlpatterns = [
     path('',views.home,name='home'),
@@ -11,6 +11,9 @@ urlpatterns = [
     path('register/', authview.registerpage, name='register'),
     path('login/', authview.loginpage, name='login'),
     path('logout/', authview.logoutpage, name='logout'),
+
+    path('add-to-ticket',ticket.addtoticket, name='addtoticket'),
+    path('ticket',ticket.ticketview, name='ticket'),
     
 
 ]

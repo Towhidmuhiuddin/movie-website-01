@@ -14,7 +14,7 @@
                     <a class="nav-link" href="{% url 'collections' %}">Collections</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tickets</a>
+                    <a class="nav-link" href="{% url 'ticket' %}">Tickets</a>
                 </li>
                 <button class="btn btn-outline-warning px-0 p-0">
                 {% if request.user.is_authenticated %}
