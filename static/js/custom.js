@@ -65,9 +65,11 @@ $(document).ready(function () {
         });
         
     });
+    
 
-    $('.delete-ticket-item').click(function (e) { 
+    $(document).on('click','.delete-ticket-item', function (e) {
         e.preventDefault();
+        
         var movie_id=$(this).closest('.moviedata').find('.mov_id').val();
         var token=$('input[name=csrfmiddlewaretoken]').val();
 
@@ -86,4 +88,47 @@ $(document).ready(function () {
         });
         
     });
+
+    $('.addtoWishlistBtn').click(function (e) { 
+        e.preventDefault();
+        var movie_id=$(this).closest('.moviedata').find('.mov_id').val();
+        var token=$('input[name=csrfmiddlewaretoken]').val();
+
+        $.ajax({
+            method: "POST",
+            url: "/add-to-wishlist",
+            data: {
+                'movie_id':movie_id,
+                csrfmiddlewaretoken:token,
+            },
+            
+            success: function (response) {
+                console.log(response);
+                alertify.success(response.status);
+            }
+        });
+    });
+    
+
+    $(document).on('click','.delete-wishlist-item', function (e) {
+        e.preventDefault();
+    
+        var movie_id=$(this).closest('.moviedata').find('.mov_id').val();
+        var token=$('input[name=csrfmiddlewaretoken]').val();
+
+        $.ajax({
+            method: "POST",
+            url: "/delete-wishlist",
+            data: {
+                'movie_id':movie_id,
+                csrfmiddlewaretoken : token,
+            },
+            
+            success: function (response) {
+                alertify.success(response.status)
+                $('.wishlistload').load(location.href + " .wishlistload")
+            }
+        });
+    });
+
 });

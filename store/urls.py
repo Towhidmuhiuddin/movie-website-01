@@ -1,6 +1,6 @@
 from django.urls import path
 from store import views
-from store.controller import authview,ticket
+from store.controller import authview,ticket,wishlist
 
 urlpatterns = [
     path('',views.home,name='home'),
@@ -16,6 +16,10 @@ urlpatterns = [
     path('ticket',ticket.ticketview, name='ticket'),
     path('update-ticket',ticket.updateticket, name='updateticket'),
     path('delete-ticket',ticket.deleteticket, name='deleteticket'),
+
+    path('wishlist',wishlist.index, name='wishlist'),
+    path('add-to-wishlist',wishlist.addtowishlist, name='addtowishlist'),
+    path('delete-wishlist',wishlist.deletewishlist, name='deletewishlist'),
     
 
 ]

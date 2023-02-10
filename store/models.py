@@ -49,4 +49,9 @@ class Ticket(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     ticket_qty = models.IntegerField(null=False,blank=False)
     created_at = models.DateField(auto_now_add=True)
+
+class Wishlist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)  
+    created_at =models.DateTimeField(auto_now_add=True)
     
