@@ -14,6 +14,8 @@ urlpatterns = [
 
     path('add-to-ticket',ticket.addtoticket, name='addtoticket'),
     path('ticket',ticket.ticketview, name='ticket'),
+    path('update-ticket',ticket.updateticket, name='updateticket'),
+    path('delete-ticket',ticket.deleteticket, name='deleteticket'),
     
 
 ]

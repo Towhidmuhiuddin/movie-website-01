@@ -5,8 +5,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="card-shadow">
-                    <div class="card-body cardload">
+                <div class="card-shadow moviedata">
+                    <div class="card-body ticketload">
                         {% if ticket %}
                             {% for item in ticket  %}
                             <div class="row">
@@ -38,7 +38,7 @@
                                 </div>
 
                                 <div class="col-md-2 my-auto">
-                                    <button class="btn btn-danger delete-ticket-item"><i class="fa fa-trash"></i>&nbsp;Remove</button>
+                                    <button class="btn btn-danger delete-ticket-item"><i class="fa fa-trash"></i>&nbsp;Delete</button>
                                 </div>
                             </div>
                             {% endfor %}

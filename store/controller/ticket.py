@@ -36,4 +36,24 @@ def addtoticket(request):
 def ticketview(request):
     ticket=Ticket.objects.filter(user=request.user)
     context={'ticket':ticket}
-    return render(request,'store/ticket.html',context)                    
+    return render(request,'store/ticket.html',context) 
+
+def updateticket(request):
+    if request.method =='POST':
+        mov_id=int(request.POST.get('movie_id'))
+        if(Ticket.objects.filter(user=request.user, movie_id=mov_id)):
+            tick_qty=int(request.POST.get('ticket_qty'))
+            ticket=Ticket.objects.get(movie_id=mov_id,user=request.user)
+            ticket.ticket_qty=tick_qty
+            ticket.save()
+            return JsonResponse({'status':'update successfully'})
+    return redirect('/')
+
+def deleteticket(request):
+    if request.method == 'POST':
+        mov_id=int(request.POST.get('movie_id'))
+        if(Ticket.objects.filter(user=request.user, movie_id=mov_id)):
+            ticketitem=Ticket.objects.get(movie_id=mov_id, user=request.user)
+            ticketitem.delete()
+            return JsonResponse({'status':'Deleted successfully'})
+    return redirect('/') 

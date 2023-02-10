@@ -43,4 +43,47 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('.changeQuantity').click(function (e) { 
+        e.preventDefault();
+        var movie_id=$(this).closest('.moviedata').find('.mov_id').val();
+        var ticket_qty=$(this).closest('.moviedata').find('.qty-input').val();
+        var token=$('input[name=csrfmiddlewaretoken]').val();
+
+        $.ajax({
+            method: "POST",
+            url: "/update-ticket",
+            data: {
+                'movie_id':movie_id,
+                'ticket_qty':ticket_qty,
+                csrfmiddlewaretoken:token,
+            },
+            success: function (response) {
+                console.log(response);
+                //alertify.success(response.status)
+            }
+        });
+        
+    });
+
+    $('.delete-ticket-item').click(function (e) { 
+        e.preventDefault();
+        var movie_id=$(this).closest('.moviedata').find('.mov_id').val();
+        var token=$('input[name=csrfmiddlewaretoken]').val();
+
+        $.ajax({
+            method: "POST",
+            url: "/delete-ticket",
+            data: {
+                'movie_id':movie_id,
+                csrfmiddlewaretoken : token,
+            },
+            
+            success: function (response) {
+                alertify.success(response.status)
+                $('.ticketload').load(location.href + " .ticketload")
+            }
+        });
+        
+    });
 });
