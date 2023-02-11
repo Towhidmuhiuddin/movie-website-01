@@ -7,10 +7,12 @@ from django.contrib.auth.decorators import login_required
 
 from store.models import Movie, Wishlist
 
+@login_required(login_url='login')
 def index(request):
     wishlist = Wishlist.objects.filter(user=request.user)
     context={'wishlist':wishlist}
     return render(request,'store/wishlist.html',context)
+
 
 def addtowishlist(request):
     if request.method =='POST':

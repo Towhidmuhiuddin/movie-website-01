@@ -42,6 +42,7 @@
                                 </div>
                             </div>
                             {% endfor %}
+                            <a href="{% url 'checkout' %}" class="btn btn-outline-success float-end"> Checkout </a>
                         {% else %}
                         <h4>Your ticket is empty</h4>
                         {% endif %}

@@ -10,11 +10,16 @@
         color:red;
         font-size:40px;
         font-weight:bold;
+        border:1px solid  #00D1FF;
+        background:#E7FCFA ;
     }
     .heading{
-        color:blue;
+        
+        color:#900C3F;
         font-size:30px;
         font-weight:bold;
+        border:1px solid #5DF6EA  ;
+        background:#F8F1D8  ;
     }
     .category_img{
         width:100%;
@@ -37,7 +42,8 @@
                                     <img src="{{item.image.url}}" class="category_img"/>
                                 </div>
                                 <h4 class="heading">{{item.name}}</h4>
-                                <button class="btn btn-outline-warning float-end mb-3 ">more</button>
+                                <p>This category is {{item.name}}. if you see the {{item.name}} movies, please press the see all</p>
+                                <button class="btn btn-outline-warning float-end mb-3 ">see all</button>
                             </div>
                         </a>
                     </div>
