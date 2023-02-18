@@ -1,7 +1,16 @@
-
+{% load static %}
+<style>
+    #logo{
+        margin-top:0;
+        margin-bottom:4px;
+        height:45px;
+        width:45px;
+        
+    }
+</style>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container fw-bold">
-        <a class="navbar-brand" href="#">NETFLIX</a>
+        <a id="logo" class="navbar-brand" href="#"><img src="{% static 'images/logo.jpg' %}" class="rounded-circle" id="logo"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

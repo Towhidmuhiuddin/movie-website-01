@@ -55,13 +55,13 @@
             <div class="col-md-5">
                 <div class="card shadow">
                     <div class="card-body">
-                        <h5 class="text-center fw-bold">Order Summary</h5>
+                        <h5 class="text-center fw-bold">Ticket Order Summary</h5>
                         <hr>
                         {% if ticketitems %}
                         <table class="table table-stripeds table-bordereds">
                             <thead>
                                 <tr>
-                                    <th>Movie</th>
+                                    <th>Movie Name</th>
                                     <th>Ticket Quantity</th>
                                     <th>Price</th>
                                 </tr>
@@ -81,7 +81,7 @@
                             </tbody>
                         </table>
                         <h6 class="fw-bold">Grand Total
-                            <span class="float-end">Rs {{total_price |stringformat:'d'}}</span>
+                            <span class="float-end">BDT {{total_price |stringformat:'d'}}</span>
                         </h6>    
                         
                         <input type="hidden" value="" name="payment_mode">
