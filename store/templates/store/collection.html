@@ -5,13 +5,17 @@
     a{
         text-decoration:none;
         text-align:center;
+        color:#C70039;
+        
     }
     #collection{
         color:red;
         font-size:40px;
         font-weight:bold;
-        border:1px solid  #00D1FF;
-        background:#E7FCFA ;
+        border:1px solid  #0048A4;
+        background:#FCF89E ;
+        padding-left:5px;
+        padding-right:5px;
     }
     .heading{
         
@@ -31,11 +35,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="mt-2 mb-4" id="collection">Collections of Movie:</h2><hr>
+            <h2 class="mt-2 mb-4 " id="collection">Categories of movie</h2><hr>
             <div class="row">
                 {% for item in category  %}
                 <div class="col-md-3 ">
-                    <div class="card mb-4 shadow">
+                    <div class="card mb-4 shadow bg-info">
                         <a href="{% url 'collectionsview' item.slug%}">
                             <div class="card-body ">
                                 <div class="category-image">
@@ -43,7 +47,7 @@
                                 </div>
                                 <h4 class="heading">{{item.name}}</h4>
                                 <p>This category is {{item.name}}. if you see the {{item.name}} movies, please press the see all</p>
-                                <button class="btn btn-outline-warning float-end mb-3 ">see all</button>
+                                <button class="btn btn-outline-danger float-end mb-3 ">see all</button>
                             </div>
                         </a>
                     </div>

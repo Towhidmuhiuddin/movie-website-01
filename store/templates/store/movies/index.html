@@ -7,8 +7,9 @@
         text-align:center;
     }
     .moviename{
-        color:#FF4600 ;
+        color:#900C3F;
         font-weight:bold;
+        
     }
     .movie_image{
         width:100%;
@@ -24,7 +25,7 @@
             <div class="row">
                 {% for item in movies %}
                 <div class="col-md-3">
-                    <div class="card mb-4">
+                    <div class="card mb-4 bg-warning">
                         <a href="{% url 'movieview' item.category.slug item.slug %}">
                             <div class="card-body">
                                 <div class="category-image">
